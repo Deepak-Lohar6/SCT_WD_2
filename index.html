@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchMe | Precision Time Tracking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="navbar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <span class="brand-name">Watch<span class="highlight">Me</span></span>
+            </div>
+            <div class="preset-modes">
+                <button class="mode-tag active" data-mode="stopwatch">Stopwatch</button>
+                <button class="mode-tag" data-mode="lap-analyzer">Lap Analytics</button>
+            </div>
+        </header>
+
+        <main class="main-stage">
+            <section class="timer-viewport">
+                <div class="chrono-wrapper">
+                    <svg class="progress-ring" width="340" height="340">
+                        <circle class="ring-bg" cx="170" cy="170" r="155"></circle>
+                        <circle class="ring-progress" id="ringProgress" cx="170" cy="170" r="155"></circle>
+                    </svg>
+                    
+                    <div class="display-core">
+                        <span class="status-indicator" id="statusIndicator">READY</span>
+                        <div class="time-readout" id="timeDisplay">
+                            00<span class="colon">:</span>00<span class="colon">:</span>00<small class="ms">.00</small>
+                        </div>
+                        <div class="lap-delta" id="lapDelta">Lap 1 • --:--.--</div>
+                    </div>
+                </div>
+
+                <div class="controls-toolbar">
+                    <button id="startBtn" class="btn btn-primary">Start</button>
+                    <button id="pauseBtn" class="btn btn-warning" disabled>Pause</button>
+                    <button id="lapBtn" class="btn btn-accent" disabled>Lap</button>
+                    <button id="resetBtn" class="btn btn-danger" disabled>Reset</button>
+                </div>
+            </section>
+
+            <section class="insights-panel">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-title">Total Splits</span>
+                        <span class="metric-value" id="totalLapsVal">0</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-title">Best Lap</span>
+                        <span class="metric-value highlight-green" id="bestLapVal">--:--.--</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-title">Worst Lap</span>
+                        <span class="metric-value highlight-red" id="worstLapVal">--:--.--</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-title">Average Lap</span>
+                        <span class="metric-value" id="avgLapVal">--:--.--</span>
+                    </div>
+                </div>
+
+                <div class="laps-container">
+                    <div class="laps-header">
+                        <h3>Split History</h3>
+                        <button id="exportBtn" class="link-btn">Export Laps</button>
+                    </div>
+                    <div class="laps-scroll">
+                        <ul id="lapsList" class="laps-list"></ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
