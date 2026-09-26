@@ -41,3 +41,10 @@ This project fulfills **Task 02: Stopwatch Web Application** for the **SkillCraf
 ├── index.html    # Core markup structure and component layout
 ├── style.css     # Glassmorphism theme rules, responsive layouts, and animations
 └── script.js    # Timer interval engine, split analytics, and data export logic
+```
+
+---
+
+## 🌐 Live Demo
+
+<a href="https://deepak-lohar6.github.io/SCT_WD_2/" target="_blank">Click here to view the live app</a>
